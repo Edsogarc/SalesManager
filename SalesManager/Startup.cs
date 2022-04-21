@@ -1,4 +1,7 @@
-﻿namespace SalesManager;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using SalesManager.Data;
+namespace SalesManager;
 public class Startup
 {
     public Startup(IConfiguration configuration)
@@ -11,6 +14,9 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddControllersWithViews();
+
+        services.AddDbContext<SalesManagerContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("SalesManagerContext")));
     }
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
