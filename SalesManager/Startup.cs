@@ -1,7 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SalesManager.Models;
-namespace SalesManager;
+using SalesManager.Services;
 using SalesManager.Data;
+namespace SalesManager;
 public class Startup
 {
     public Startup(IConfiguration configuration)
@@ -17,6 +18,7 @@ public class Startup
                 options.UseSqlServer(Configuration.GetConnectionString("SalesManagerContext")));
         
         services.AddScoped<SeedingService>();
+        services.AddScoped<SellerService>();
     }
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, SeedingService seedingService)
     {
