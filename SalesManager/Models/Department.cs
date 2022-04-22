@@ -1,8 +1,16 @@
-﻿namespace SalesManager.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace SalesManager.Models
 {
+    [Table("Departments")]
     public class Department
     {
+        [Key]
         public int Id { get; set; }
+        [StringLength(100, ErrorMessage = "Minimum size 100 characters")]
+        [Required(ErrorMessage = "Department name required")]
+        [Display(Name = "Name")]
         public string Name { get; set; }
 
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
