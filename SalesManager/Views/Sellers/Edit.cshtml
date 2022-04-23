@@ -37,14 +37,14 @@
                 <label asp-for="Seller.DepartmentId" class="control-label"></label>
                 <select asp-for="Seller.DepartmentId" asp-items="@(new SelectList(Model.Departments,"Id","Name"))" class="form-control"></select>
             </div>
-            <hr />
+            <br>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-info" />
             </div>
         </form>
     </div>
 </div>
-<hr />
+<br>
 <div>
     <a asp-action="Index" class="btn btn-outline-light">Back to List</a>
 </div>
