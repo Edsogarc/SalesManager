@@ -22,6 +22,7 @@ public class Startup
         services.AddScoped<SeedingService>();
         services.AddScoped<SellerService>();
         services.AddScoped<DepartmentService>();
+        services.AddScoped<SalesRecordService>();
     }
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, SeedingService seedingService)
     {
